@@ -7,7 +7,6 @@
 # Institution: Nexford University
 ################################################################################
 
-
 if (!require(pacman)) {
   install.packages("pacman") # Check if package manager is installed 
 }
@@ -31,8 +30,8 @@ digraph takealot_analytics_hub {
     style = filled
     fillcolor = '#E8F4FD'
     
-    INIT [label = '🎯 Load ML Models\n(KMeans + XGBoost)\n+ SHAP Explainer', fillcolor = '#DFF0D8']
-    UI [label = '🎨 Glassmorphic UI\n2025 Design System', fillcolor = '#F0F8FF']
+    INIT [label = '🎯 Load ML Models\\n(KMeans + XGBoost)\\n+ SHAP Explainer', fillcolor = '#DFF0D8']
+    UI [label = '🎨 Glassmorphic UI\\n2025 Design System', fillcolor = '#F0F8FF']
   }
   
   // Main Navigation Tabs
@@ -41,9 +40,9 @@ digraph takealot_analytics_hub {
     style = filled
     fillcolor = '#F8F9FA'
     
-    TAB1 [label = '🎯 Customer Analysis\n(Single Prediction)', fillcolor = '#E3F2FD']
-    TAB2 [label = '📊 Dataset Analytics\n(Batch Processing)', fillcolor = '#FFF3E0']
-    TAB3 [label = '📥 Export Hub\n(Download Center)', fillcolor = '#E8F5E8']
+    TAB1 [label = '🎯 Customer Analysis\\n(Single Prediction)', fillcolor = '#E3F2FD']
+    TAB2 [label = '📊 Dataset Analytics\\n(Batch Processing)', fillcolor = '#FFF3E0']
+    TAB3 [label = '📥 Export Hub\\n(Download Center)', fillcolor = '#E8F5E8']
   }
   
   // Customer Analysis Components
@@ -52,11 +51,11 @@ digraph takealot_analytics_hub {
     style = filled
     fillcolor = '#FFF8E1'
     
-    INPUT [label = '📝 12 Behavior Inputs\n(Duration, Rates, Values)', fillcolor = '#FFECB3']
-    SEGMENT [label = '🎯 KMeans Clustering\n(High-Intent vs Casual)', fillcolor = '#F8BBD9']
-    PREDICT [label = '🤖 XGBoost Prediction\n(Purchase Probability)', fillcolor = '#B3E5FC']
-    SHAP [label = '🧠 SHAP Analysis\n(Feature Importance)', fillcolor = '#E1BEE7']
-    INSIGHTS [label = '💡 AI Insights\n(Recommendations)', fillcolor = '#C8E6C9']
+    INPUT [label = '📝 12 Behavior Inputs\\n(Duration, Rates, Values)', fillcolor = '#FFECB3']
+    SEGMENT [label = '🎯 KMeans Clustering\\n(High-Intent vs Casual)', fillcolor = '#F8BBD9']
+    PREDICT [label = '🤖 XGBoost Prediction\\n(Purchase Probability)', fillcolor = '#B3E5FC']
+    SHAP [label = '🧠 SHAP Analysis\\n(Feature Importance)', fillcolor = '#E1BEE7']
+    INSIGHTS [label = '💡 AI Insights\\n(Recommendations)', fillcolor = '#C8E6C9']
   }
   
   // Dataset Processing
@@ -65,10 +64,10 @@ digraph takealot_analytics_hub {
     style = filled
     fillcolor = '#FAFAFA'
     
-    UPLOAD [label = '📂 CSV Upload\n+ Demo Dataset', fillcolor = '#FFE0B2']
-    PREVIEW [label = '👁️ Data Preview\n(10 rows display)', fillcolor = '#F3E5F5']
-    BATCH [label = '⚡ Batch Analysis\n(Sample Size Control)', fillcolor = '#E0F2F1']
-    RESULTS [label = '📈 Batch Results\n(Summary Statistics)', fillcolor = '#FFF9C4']
+    UPLOAD [label = '📂 CSV Upload\\n+ Demo Dataset', fillcolor = '#FFE0B2']
+    PREVIEW [label = '👁️ Data Preview\\n(10 rows display)', fillcolor = '#F3E5F5']
+    BATCH [label = '⚡ Batch Analysis\\n(Sample Size Control)', fillcolor = '#E0F2F1']
+    RESULTS [label = '📈 Batch Results\\n(Summary Statistics)', fillcolor = '#FFF9C4']
   }
   
   // Export System
@@ -77,9 +76,9 @@ digraph takealot_analytics_hub {
     style = filled
     fillcolor = '#F1F8E9'
     
-    CSV1 [label = '📊 Single Predictions\n(.csv download)', fillcolor = '#DCEDC8']
-    CSV2 [label = '📈 Batch Results\n(.csv download)', fillcolor = '#DCEDC8']
-    REPORT [label = '📋 Full Report\n(.txt download)', fillcolor = '#DCEDC8']
+    CSV1 [label = '📊 Single Predictions\\n(.csv download)', fillcolor = '#DCEDC8']
+    CSV2 [label = '📈 Batch Results\\n(.csv download)', fillcolor = '#DCEDC8']
+    REPORT [label = '📋 Full Report\\n(.txt download)', fillcolor = '#DCEDC8']
   }
   
   // Visualization Components
@@ -88,9 +87,9 @@ digraph takealot_analytics_hub {
     style = filled
     fillcolor = '#FCE4EC'
     
-    CARDS [label = '💳 Metric Cards\n(Segment + Intent)', fillcolor = '#F8BBD9']
-    SHAPVIZ [label = '📊 SHAP Plot\n(Feature Importance)', fillcolor = '#E1BEE7']
-    BEHAVIOR [label = '📈 Behavior Metrics\n(Progress Bars)', fillcolor = '#F3E5F5']
+    CARDS [label = '💳 Metric Cards\\n(Segment + Intent)', fillcolor = '#F8BBD9']
+    SHAPVIZ [label = '📊 SHAP Plot\\n(Feature Importance)', fillcolor = '#E1BEE7']
+    BEHAVIOR [label = '📈 Behavior Metrics\\n(Progress Bars)', fillcolor = '#F3E5F5']
   }
   
   // Main Flow Connections
@@ -146,22 +145,44 @@ graph
 timestamp <- format(Sys.time(), "%Y%m%d_%H%M%S")
 base_filename <- paste0("takealot_analytics_hub_", timestamp)
 
+cat("🚀 Generating diagram files...\n")
+
 # Save as SVG
 svg_filename <- paste0(base_filename, ".svg")
+cat("📄 Creating SVG...\n")
 graph %>%
   export_svg() %>%
   writeLines(svg_filename)
 
 # Save as PNG (high resolution)
 png_filename <- paste0(base_filename, ".png")
+cat("🖼️  Creating PNG...\n")
 graph %>%
   export_svg() %>%
   charToRaw() %>%
   rsvg_png(png_filename, width = 1920, height = 1080)
 
+cat("✅ Export completed successfully!\n")
+
 # Print confirmation messages
-cat("📊 Diagram saved successfully!\n")
+cat("\n📊 Diagram export completed!\n")
+cat(paste(rep("=", 50), collapse = ""), "\n")
 cat("📁 Files created:\n")
-cat("   🖼️  SVG:", svg_filename, "\n")
-cat("   🖼️  PNG:", png_filename, "(1920x1080 resolution)\n")
-cat("📍 Location:", getwd(), "\n")
+cat("   📄 SVG:  ", svg_filename, "\n")
+cat("   🖼️  PNG:  ", png_filename, " (1920x1080 resolution)\n")
+cat("📍 Location: ", getwd(), "\n")
+cat(paste(rep("=", 50), collapse = ""), "\n")
+
+# Check file sizes
+if (file.exists(svg_filename)) {
+  svg_size <- round(file.size(svg_filename) / 1024, 1)
+  cat("📏 SVG size: ", svg_size, " KB\n")
+}
+if (file.exists(png_filename)) {
+  png_size <- round(file.size(png_filename) / 1024, 1)
+  cat("📏 PNG size: ", png_size, " KB\n")
+}
+
+cat("\n🎉 SVG and PNG formats ready for use!\n")
+
+
